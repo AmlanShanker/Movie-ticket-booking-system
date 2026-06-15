@@ -3,7 +3,218 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Book Ticket</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background: #bcd3f2;
+      }
+
+      header {
+        text-align: center;
+        font-size: 3rem;
+        font-weight: bold;
+        padding: 20px;
+      }
+
+      .nav {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 15px;
+      }
+
+      .nav a {
+        text-decoration: none;
+        color: black;
+        font-size: 1.1rem;
+        font-weight: bold;
+      }
+
+      /* GRID LAYOUT */
+      .container {
+        max-width: 800px;
+        margin: 40px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .container h2 {
+        text-align: center;
+        margin-bottom: 25px;
+      }
+
+      .booking-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .grid-item {
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      input,
+      select {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .full-width {
+        grid-column: 1 / span 2;
+      }
+
+      button {
+        padding: 12px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: bold;
+      }
+
+      button:hover {
+        background: #0056b3;
+      }
+
+      /* Modal */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      .modal-content {
+        background: white;
+        width: 350px;
+        margin: 200px auto;
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        margin-top: 20px;
+        font-weight: bold;
+      }
+    </style>
   </head>
-  <body></body>
+
+  <body>
+    <header>
+      Book Ticket
+
+      <nav class="nav">
+        <a href="Homepage.html">Home</a>
+        <a href="Booking.html">Movies</a>
+        <a href="About Us.html">About Us</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <h2>Movie Ticket Booking Form</h2>
+
+      <form
+        onsubmit="
+          showModal();
+          return false;
+        "
+      >
+        <div class="booking-grid">
+          <div class="grid-item">
+            <label>Customer Name</label>
+            <input type="text" required />
+          </div>
+
+          <div class="grid-item">
+            <label>Movie Name</label>
+            <select required>
+              <option>Spider-Man Brand New Day</option>
+              <option>The Oddessy</option>
+              <option>Project Hail Mary</option>
+              <option>Dune Messiah</option>
+              <option>Avengers: Doomsday</option>
+            </select>
+          </div>
+
+          <div class="grid-item">
+            <label>Show Date</label>
+            <input type="date" required />
+          </div>
+
+          <div class="grid-item">
+            <label>Show Time</label>
+            <select required>
+              <option>10:00 AM</option>
+              <option>1:30 PM</option>
+              <option>4:00 PM</option>
+              <option>6:30 PM</option>
+              <option>9:00 PM</option>
+            </select>
+          </div>
+
+          <div class="grid-item">
+            <label>Seat Number</label>
+            <input type="text" placeholder="A1" required />
+          </div>
+
+          <div class="grid-item">
+            <label>Number of Tickets</label>
+            <input type="number" min="1" max="10" required />
+          </div>
+
+          <div class="full-width">
+            <button type="submit">Confirm Booking</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div id="bookingModal" class="modal">
+      <div class="modal-content">
+        <h2>Booking Successful!</h2>
+        <p>Your movie ticket has been booked successfully.</p>
+        <br />
+        <button onclick="closeModal()">Close</button>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2026 Movie Ticket Booking System. All rights reserved.
+    </footer>
+
+    <script>
+      function showModal() {
+        document.getElementById("bookingModal").style.display = "block";
+      }
+
+      function closeModal() {
+        document.getElementById("bookingModal").style.display = "none";
+      }
+    </script>
+  </body>
 </html>
