@@ -4,15 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register</title>
+
+    <style>
+      * {
+        background: #bcd3f2;
+      }
+
+      button:hover {
+        transform: scale(1.1);
+      }
+    </style>
   </head>
-  <style>
-    * {
-      background: #bcd3f2;
-    }
-    button:hover {
-      transform: scale(1.1);
-    }
-  </style>
+
   <body>
     <header
       style="
@@ -26,25 +29,33 @@
     >
       Registration Form
     </header>
+
     <form
+      id="registerForm"
       action="Login.html"
       style="width: 100%; height: 100vh; align-items: center; gap: 1rem"
     >
-      <label style="font-weight: bold; font-size: 1.2rem" for="name"
-        >Username:
+      <label style="font-weight: bold; font-size: 1.2rem" for="name">
+        Username:
       </label>
-      <input type="text" id="name" placeholder="Name" /> <br />
-      <br />
-      <label style="font-weight: bold; font-size: 1.2rem" for="email"
-        >Email:
+
+      <input type="text" id="name" placeholder="Name" required />
+      <br /><br />
+
+      <label style="font-weight: bold; font-size: 1.2rem" for="email">
+        Email:
       </label>
-      <input type="email" id="email" placeholder="Email" /> <br />
-      <br />
-      <label style="font-weight: bold; font-size: 1.2rem" for="password"
-        >Password:
+
+      <input type="email" id="email" placeholder="Email" required />
+      <br /><br />
+
+      <label style="font-weight: bold; font-size: 1.2rem" for="password">
+        Password:
       </label>
-      <input type="password" id="password" placeholder="Password" /> <br />
-      <br />
+
+      <input type="password" id="password" placeholder="Password" required />
+      <br /><br />
+
       <button
         style="
           background: linear-gradient(#635ce6, #090979, #00d4ff);
@@ -60,5 +71,17 @@
         Register
       </button>
     </form>
+
+    <script>
+      document
+        .getElementById("registerForm")
+        .addEventListener("submit", function () {
+          let username = document.getElementById("name").value;
+          let email = document.getElementById("email").value;
+
+          localStorage.setItem("username", username);
+          localStorage.setItem("email", email);
+        });
+    </script>
   </body>
 </html>

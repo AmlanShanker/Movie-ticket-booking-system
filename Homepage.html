@@ -108,8 +108,13 @@
       <nav class="nav">
         <a href="About Us.html">About Us</a>
         <a href="Booking.html">Booking</a>
-        <a href="Login.html">Logout</a>
+        <a href="Login.html" onclick="logout()">Logout</a>
       </nav>
+      <br />
+      <h3
+        id="welcomeUser"
+        style="text-align: center; margin-top: 20px; color: black"
+      ></h3>
       <section class="hero">
         <h1>Book Your Favorite Movies Online</h1>
         <p>Fast, secure, and convenient movie ticket booking</p>
@@ -118,6 +123,7 @@
     </header>
 
     <main class="content">
+      <h2 id="Welcome"></h2>
       <p>
         Welcome to our Movie Ticket Booking System! Our platform is designed to
         provide a fast, secure, and convenient way to book movie tickets online.
@@ -162,9 +168,26 @@
         your favorite movies.
       </p>
     </main>
-
+    <script>
+      let user = localStorage.getItem("username");
+      document.getElementById("welcome").innerHTML = "Welcome " + user;
+    </script>
     <footer>
       &copy; 2026 Movie Ticket Booking System. All rights reserved.
     </footer>
+
+    <script>
+      let username = localStorage.getItem("username");
+
+      if (username) {
+        document.getElementById("welcomeUser").innerHTML =
+          "Welcome, " + username + "!";
+      }
+
+      function logout() {
+        localStorage.removeItem("username");
+        localStorage.removeItem("email");
+      }
+    </script>
   </body>
 </html>
