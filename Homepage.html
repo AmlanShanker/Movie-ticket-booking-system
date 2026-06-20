@@ -138,14 +138,89 @@
           font-size: 0.9rem;
         }
       }
+      #welcomeUser {
+        text-align: center;
+        margin-top: 15px;
+        color: black;
+        font-size: 1.8rem;
+        font-weight: bold;
+      }
+
+      .menu-btn {
+        display: none;
+        font-size: 2rem;
+        cursor: pointer;
+        margin-top: 15px;
+      }
+
+      @media (max-width: 768px) {
+        .h {
+          font-size: 2rem;
+        }
+
+        .menu-btn {
+          display: block;
+        }
+
+        .nav {
+          display: none;
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+          margin-top: 20px;
+        }
+
+        .nav.active {
+          display: flex;
+        }
+
+        .hero h1 {
+          font-size: 1.7rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .content {
+          padding: 15px;
+        }
+
+        .content p,
+        ul {
+          font-size: 1rem;
+        }
+
+        #welcomeUser {
+          font-size: 1.4rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .h {
+          font-size: 1.5rem;
+        }
+
+        .hero h1 {
+          font-size: 1.3rem;
+        }
+
+        .hero p {
+          font-size: 0.9rem;
+        }
+
+        #welcomeUser {
+          font-size: 1.1rem;
+        }
+      }
     </style>
   </head>
 
   <body>
     <header class="h">
       Movie Ticket Booking System
-
-      <nav class="nav">
+      <span class="menu-btn" onclick="toggleMenu()">☰</span>
+      <nav class="nav" id="navMenu">
         <a href="About Us.html">About Us</a>
         <a href="Booking.html">Booking</a>
         <a href="Login.html" onclick="logout()">Logout</a>
@@ -232,6 +307,9 @@
       function logout() {
         localStorage.removeItem("username");
         localStorage.removeItem("email");
+      }
+      function toggleMenu() {
+        document.getElementById("navMenu").classList.toggle("active");
       }
     </script>
   </body>
