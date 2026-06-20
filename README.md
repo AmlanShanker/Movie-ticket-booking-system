@@ -15,7 +15,7 @@ https://amlanshanker.github.io/Movie-ticket-booking-system/
 
 The Movie Ticket Booking System is designed to provide a seamless and convenient online movie reservation experience. Instead of waiting in long queues at theaters, users can browse movie listings, check show timings, and reserve tickets from anywhere.
 
-This project was developed as part of the **Full Stack Development (MCA413-1)** course at **CHRIST (Deemed to be University), Bangalore**.
+
 
 ---
 
@@ -60,12 +60,12 @@ This project was developed as part of the **Full Stack Development (MCA413-1)** 
 ## 🛠 Technologies Used
 
 | Technology | Purpose |
-|------------|----------|
-| HTML5 | Page Structure and Semantic Elements |
-| CSS3 | Styling and Responsive Design |
-| JavaScript | Dynamic Functionality and Interactivity |
-| Local Storage API | Client-Side Data Storage |
-| GitHub Pages | Project Deployment and Hosting |
+|------------|---------|
+| 🌐 HTML5 | Structured web pages using semantic elements |
+| 🎨 CSS3 | Responsive design and user interface styling |
+| ⚡ JavaScript | Client-side interactivity and dynamic content |
+| 💾 Local Storage API | Temporary storage of user information in the browser |
+| 🚀 GitHub Pages | Project hosting and deployment |
 
 ## 📂 Project Structure
 
