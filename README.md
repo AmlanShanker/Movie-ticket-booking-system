@@ -58,32 +58,32 @@ JavaScript	Dynamic functionality and interactivity
 Local Storage API	Client-side data storage
 GitHub Pages	Project deployment
 
-📂 Project Structure
+## 📂 Project Structure
+
+```text
 Movie-Ticket-Booking-System/
 │
-├── index.html              # Registration Page
-├── Login.html              # Login Page
-├── Homepage.html           # Home Page
-├── Booking.html            # Movie Listing Page
-├── BookTicket.html         # Ticket Booking Page
-├── About Us.html           # About Page
-└── README.md               # Project Documentation
+├── index.html          # Registration Page
+├── Login.html          # Login Page
+├── Homepage.html       # Home Page
+├── Booking.html        # Movie Listing Page
+├── BookTicket.html     # Ticket Booking Page
+├── About Us.html       # About Page
+└── README.md           # Project Documentation
+```
 
-🔄 Application Workflow
-Register
-   ↓
-Login
-   ↓
-Homepage
-   ↓
-Browse Movies
-   ↓
-Select Movie
-   ↓
-Book Ticket
-   ↓
-Calculate Price
-   ↓
-Confirm Booking
-   ↓
-Booking Success
+---
+
+## 🔄 Application Workflow
+
+```mermaid
+flowchart TD
+    A[Register] --> B[Login]
+    B --> C[Homepage]
+    C --> D[Browse Movies]
+    D --> E[Select Movie]
+    E --> F[Book Ticket]
+    F --> G[Calculate Price]
+    G --> H[Confirm Booking]
+    H --> I[Booking Success]
+```
