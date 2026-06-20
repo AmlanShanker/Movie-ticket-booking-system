@@ -208,12 +208,12 @@
 
           <div class="grid-item">
             <label>Movie Name</label>
-            <select required>
-              <option>Spider-Man Brand New Day</option>
-              <option>The Oddessy</option>
-              <option>Project Hail Mary</option>
-              <option>Dune Messiah</option>
-              <option>Avengers: Doomsday</option>
+            <select id="movieName" required>
+              <option value="250">Spider-Man Brand New Day</option>
+              <option value="220">The Odyssey</option>
+              <option value="200">Project Hail Mary</option>
+              <option value="240">Dune Messiah</option>
+              <option value="230">Avengers: Doomsday</option>
             </select>
           </div>
 
@@ -234,15 +234,19 @@
           </div>
 
           <div class="grid-item">
-            <label>Seat Number</label>
-            <input type="text" placeholder="A1" required />
-          </div>
-
-          <div class="grid-item">
             <label>Number of Tickets</label>
-            <input type="number" min="1" max="10" required />
+            <input
+              type="number"
+              id="ticketCount"
+              min="1"
+              max="10"
+              value="1"
+              required
+            />
           </div>
-
+          <div class="full-width">
+            <h3>Total Price: ₹<span id="totalPrice">250</span></h3>
+          </div>
           <div class="full-width">
             <button type="submit">Confirm Booking</button>
           </div>
@@ -253,9 +257,17 @@
     <div id="bookingModal" class="modal">
       <div class="modal-content">
         <h2>Booking Successful!</h2>
+
         <p>Your movie ticket has been booked successfully.</p>
+
+        <p>
+          Redirecting to Home Page in
+          <span id="countdown">5</span> seconds...
+        </p>
+
         <br />
-        <button onclick="closeModal()">Close</button>
+
+        <button onclick="goHome()">Go Home Now</button>
       </div>
     </div>
 
@@ -266,11 +278,46 @@
     <script>
       function showModal() {
         document.getElementById("bookingModal").style.display = "block";
+
+        let seconds = 5;
+
+        const countdown = document.getElementById("countdown");
+
+        const timer = setInterval(function () {
+          seconds--;
+
+          countdown.innerHTML = seconds;
+
+          if (seconds <= 0) {
+            clearInterval(timer);
+
+            window.location.href = "Homepage.html";
+          }
+        }, 1000);
       }
 
-      function closeModal() {
-        document.getElementById("bookingModal").style.display = "none";
+      function goHome() {
+        window.location.href = "Homepage.html";
       }
+      const movieName = document.getElementById("movieName");
+      const ticketCount = document.getElementById("ticketCount");
+      const totalPrice = document.getElementById("totalPrice");
+
+      function updatePrice() {
+        let moviePrice = Number(movieName.value);
+
+        let tickets = Number(ticketCount.value);
+
+        let total = moviePrice * tickets;
+
+        totalPrice.innerHTML = total;
+      }
+
+      movieName.addEventListener("change", updatePrice);
+
+      ticketCount.addEventListener("input", updatePrice);
+
+      updatePrice();
     </script>
   </body>
 </html>
