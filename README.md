@@ -1,62 +1,71 @@
-🎬 Movie Ticket Booking System
+# 🎬 Movie Ticket Booking System
 
-A responsive and interactive front-end web application that allows users to browse movies, register/login, book movie tickets, calculate ticket prices, and receive booking confirmations.
+A responsive and interactive web application that simplifies the movie ticket booking process. Users can register, log in, browse available movies, calculate ticket costs, and book tickets through an intuitive and mobile-friendly interface.
 
-🌐 Live Demo
+---
 
-Website:
+## 🌐 Live Demo
+
+🔗 **Website:**  
 https://amlanshanker.github.io/Movie-ticket-booking-system/
 
-📖 Project Overview
+---
 
-The Movie Ticket Booking System is designed to simplify the movie ticket reservation process by providing users with an easy-to-use online platform. Users can register, log in, view available movies, select show timings, calculate ticket costs, and confirm bookings through a modern web interface.
+## 📖 Project Overview
 
-This project was developed as part of the Full Stack Development (MCA413-1) course at CHRIST (Deemed to be University), Bangalore.
+The Movie Ticket Booking System is designed to provide a seamless and convenient online movie reservation experience. Instead of waiting in long queues at theaters, users can browse movie listings, check show timings, and reserve tickets from anywhere.
 
+This project was developed as part of the **Full Stack Development (MCA413-1)** course at **CHRIST (Deemed to be University), Bangalore**.
 
-🚀 Features
+---
 
-👤 User Management
-User Registration
-User Login
-Username persistence using Local Storage
-Logout functionality
+## 🚀 Features
 
-🎥 Movie Browsing
-View available movies
-Movie details including:
-Genre
-Duration
-Show Time
-Ticket Price
+### 👤 User Management
+- User Registration
+- User Login
+- Logout Functionality
+- Username Persistence using Local Storage
 
-🎟 Ticket Booking
-Select movie
-Choose show date and timing
-Select number of tickets
-Automatic price calculation
-Booking confirmation popup
+### 🎥 Movie Browsing
+- View Available Movies
+- Display Movie Genre
+- Display Duration
+- Show Available Timings
+- Display Ticket Prices
 
-📱 Responsive Design
-Mobile-friendly interface
-Tablet support
-Desktop compatibility
-CSS Media Queries for responsiveness
+### 🎟 Ticket Booking
+- Select Preferred Movie
+- Choose Show Date
+- Choose Show Timing
+- Select Number of Tickets
+- Automatic Ticket Price Calculation
+- Booking Confirmation Popup
 
-⚡ Interactive Features
-JavaScript event handling
-Dynamic ticket price updates
-Modal popups
-Countdown timer after booking
-Local Storage API integration
+### 📱 Responsive Design
+- Mobile-Friendly Interface
+- Tablet Support
+- Desktop Compatibility
+- Responsive Layout using CSS Media Queries
 
-🛠 Technologies Used
-Technology	Purpose
-HTML5	Structure and semantic elements
-CSS3	Styling and responsive design
-JavaScript	Dynamic functionality and interactivity
-Local Storage API	Client-side data storage
-GitHub Pages	Project deployment
+### ⚡ Interactive Features
+- JavaScript Event Handling
+- Dynamic Price Updates
+- Modal Popups
+- Countdown Timer
+- Local Storage API Integration
+
+---
+
+## 🛠 Technologies Used
+
+| Technology | Purpose |
+|------------|----------|
+| HTML5 | Page Structure and Semantic Elements |
+| CSS3 | Styling and Responsive Design |
+| JavaScript | Dynamic Functionality and Interactivity |
+| Local Storage API | Client-Side Data Storage |
+| GitHub Pages | Project Deployment and Hosting |
 
 ## 📂 Project Structure
 
