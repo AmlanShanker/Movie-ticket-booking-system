@@ -13,12 +13,15 @@ The Movie Ticket Booking System is designed to simplify the movie ticket reserva
 
 This project was developed as part of the Full Stack Development (MCA413-1) course at CHRIST (Deemed to be University), Bangalore.
 
+
 🚀 Features
+
 👤 User Management
 User Registration
 User Login
 Username persistence using Local Storage
 Logout functionality
+
 🎥 Movie Browsing
 View available movies
 Movie details including:
@@ -26,23 +29,27 @@ Genre
 Duration
 Show Time
 Ticket Price
+
 🎟 Ticket Booking
 Select movie
 Choose show date and timing
 Select number of tickets
 Automatic price calculation
 Booking confirmation popup
+
 📱 Responsive Design
 Mobile-friendly interface
 Tablet support
 Desktop compatibility
 CSS Media Queries for responsiveness
+
 ⚡ Interactive Features
 JavaScript event handling
 Dynamic ticket price updates
 Modal popups
 Countdown timer after booking
 Local Storage API integration
+
 🛠 Technologies Used
 Technology	Purpose
 HTML5	Structure and semantic elements
@@ -50,6 +57,7 @@ CSS3	Styling and responsive design
 JavaScript	Dynamic functionality and interactivity
 Local Storage API	Client-side data storage
 GitHub Pages	Project deployment
+
 📂 Project Structure
 Movie-Ticket-Booking-System/
 │
