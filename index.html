@@ -13,6 +13,36 @@
       button:hover {
         transform: scale(1.1);
       }
+      form {
+        max-width: 500px;
+        margin: auto;
+        padding: 20px;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+      }
+
+      button {
+        width: 100%;
+        background: linear-gradient(#635ce6, #090979, #00d4ff);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      @media (max-width: 768px) {
+        header {
+          font-size: 1.5rem !important;
+        }
+
+        form {
+          width: 90%;
+        }
+      }
     </style>
   </head>
 
@@ -30,11 +60,7 @@
       Registration Form
     </header>
 
-    <form
-      id="registerForm"
-      action="Login.html"
-      style="width: 100%; height: 100vh; align-items: center; gap: 1rem"
-    >
+    <form id="registerForm" action="Login.html">
       <label style="font-weight: bold; font-size: 1.2rem" for="name">
         Username:
       </label>
@@ -56,20 +82,7 @@
       <input type="password" id="password" placeholder="Password" required />
       <br /><br />
 
-      <button
-        style="
-          background: linear-gradient(#635ce6, #090979, #00d4ff);
-          color: white;
-          border: none;
-          padding: 10px 20px;
-          font-size: 1.2rem;
-          border-radius: 5px;
-          cursor: pointer;
-        "
-        type="submit"
-      >
-        Register
-      </button>
+      <button type="submit">Register</button>
     </form>
 
     <script>

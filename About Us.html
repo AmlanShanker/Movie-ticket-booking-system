@@ -11,8 +11,8 @@
       padding: 0;
       box-sizing: border-box;
       background: #bcd3f2;
-      height: 200px;
     }
+
     *::-webkit-scrollbar {
       display: none;
     }
@@ -36,6 +36,31 @@
       color: black;
       font-weight: bold;
       font-size: 1.3rem;
+    }
+    @media (max-width: 768px) {
+      .h {
+        font-size: 2rem;
+      }
+
+      .nav {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+      }
+
+      main {
+        padding: 15px;
+      }
+
+      main p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .h {
+        font-size: 1.5rem;
+      }
     }
   </style>
   <body>
