@@ -98,13 +98,31 @@
     </form>
 
     <script>
-      window.onload = function () {
+      window.onload = () => {
         let username = localStorage.getItem("username");
 
         if (username) {
           document.getElementById("name").value = username;
         }
       };
+
+      document.querySelector("form").addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        let enteredUser = document.getElementById("name").value;
+        let enteredPass = document.getElementById("password").value;
+
+        let storedUser = localStorage.getItem("username");
+        let storedPass = localStorage.getItem("password");
+
+        if (enteredUser === storedUser && enteredPass === storedPass) {
+          alert("Login Successful");
+
+          window.location = "Homepage.html";
+        } else {
+          alert("Invalid Username or Password");
+        }
+      });
     </script>
   </body>
 </html>
