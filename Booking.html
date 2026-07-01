@@ -110,7 +110,7 @@
       .modal-content {
         background: white;
         width: 400px;
-        margin: 15% auto;
+        margin: 8% auto;
         padding: 20px;
         border-radius: 10px;
         text-align: center;
@@ -190,7 +190,11 @@
           <p><strong>Duration:</strong> 181 min</p>
           <p><strong>Show Time:</strong> 10:00 AM</p>
           <p><strong>Price:</strong> ₹250</p>
-          <button onclick="openModal('Spider-Man Brand New Day')">
+          <button
+            onclick="
+              openModal('Spider-Man Brand New Day', '/Trailers/spider-man.mp4')
+            "
+          >
             Book Now
           </button>
         </div>
@@ -201,7 +205,9 @@
           <p><strong>Duration:</strong> 148 min</p>
           <p><strong>Show Time:</strong> 1:30 PM</p>
           <p><strong>Price:</strong> ₹220</p>
-          <button onclick="openModal('The Odyssey')">Book Now</button>
+          <button onclick="openModal('The Odyssey', '/Trailers/odyssey.mp4')">
+            Book Now
+          </button>
         </div>
 
         <div class="movie-card">
@@ -210,7 +216,9 @@
           <p><strong>Duration:</strong> 169 min</p>
           <p><strong>Show Time:</strong> 4:00 PM</p>
           <p><strong>Price:</strong> ₹200</p>
-          <button onclick="openModal('Project Hail Mary')">Book Now</button>
+          <button onclick="openModal('Project Hail Mary', '/Trailers/phm.mp4')">
+            Book Now
+          </button>
         </div>
 
         <div class="movie-card">
@@ -219,7 +227,9 @@
           <p><strong>Duration:</strong> 152 min</p>
           <p><strong>Show Time:</strong> 6:30 PM</p>
           <p><strong>Price:</strong> ₹240</p>
-          <button onclick="openModal('Dune Messiah')">Book Now</button>
+          <button onclick="openModal('Dune Messiah', '/Trailers/dune.mp4')">
+            Book Now
+          </button>
         </div>
 
         <div class="movie-card">
@@ -228,7 +238,11 @@
           <p><strong>Duration:</strong> 148 min</p>
           <p><strong>Show Time:</strong> 9:00 PM</p>
           <p><strong>Price:</strong> ₹230</p>
-          <button onclick="openModal('Avengers: Doomsday')">Book Now</button>
+          <button
+            onclick="openModal('Avengers: Doomsday', '/Trailers/doomsday.mp4')"
+          >
+            Book Now
+          </button>
         </div>
       </div>
     </main>
@@ -236,6 +250,17 @@
     <div id="bookingModal" class="modal">
       <div class="modal-content">
         <h2>Movie Selected!</h2>
+
+        <video
+          id="modalTrailer"
+          width="100%"
+          height="220"
+          controls
+          autoplay
+          muted
+        >
+          <source id="modalSource" src="" type="video/mp4" />
+        </video>
 
         <p id="selectedMovie"></p>
 
@@ -252,14 +277,26 @@
     </footer>
 
     <script>
-      function openModal(movieName) {
+      function openModal(movieName, trailer) {
         document.getElementById("selectedMovie").innerHTML =
           "You selected <b>" + movieName + "</b>. Click Continue to proceed.";
+
+        const video = document.getElementById("modalTrailer");
+        const source = document.getElementById("modalSource");
+
+        source.src = trailer;
+        video.load();
+        video.play();
 
         document.getElementById("bookingModal").style.display = "block";
       }
 
       function closeModal() {
+        const video = document.getElementById("modalTrailer");
+
+        video.pause();
+        video.currentTime = 0;
+
         document.getElementById("bookingModal").style.display = "none";
       }
     </script>
