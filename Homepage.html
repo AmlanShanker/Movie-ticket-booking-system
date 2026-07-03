@@ -88,7 +88,7 @@
 
         background:
           linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
-          url("images/cinema.jpg") center/cover no-repeat;
+          url("") center/cover no-repeat;
 
         display: flex;
         flex-direction: column;
@@ -143,7 +143,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
+        transition: 0.3s;
         text-align: center;
       }
 
@@ -230,7 +230,9 @@
       body.dark .nav a {
         color: white;
       }
-
+      body.dark h3 {
+        color: white;
+      }
       body.dark .content {
         color: white;
       }
