@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
     <title>Movie Ticket Booking System</title>
 
     <style>
@@ -13,7 +17,7 @@
       }
 
       body {
-        background: #bcd3f2;
+        background: #f4f6f8;
         font-family: Arial, sans-serif;
       }
 
@@ -32,7 +36,8 @@
         margin-top: 25px;
         display: flex;
         justify-content: center;
-        gap: 30px;
+        align-items: center;
+        gap: 35px;
       }
 
       .nav a {
@@ -40,6 +45,8 @@
         color: black;
         font-weight: bold;
         font-size: 1.1rem;
+        display: flex;
+        align-items: center;
       }
 
       .content {
@@ -72,29 +79,202 @@
         font-weight: bold;
       }
       .hero {
-        min-height: 220px;
+        height: 500px;
+        margin: 30px auto;
+        width: 95%;
+        max-width: 1400px;
+
+        border-radius: 15px;
+
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+          url("images/cinema.jpg") center/cover no-repeat;
+
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: 20px;
         text-align: center;
+
+        color: white;
       }
 
       .hero h1 {
-        font-size: 2.2rem;
-        margin-bottom: 10px;
+        font-size: 3rem;
+        margin-bottom: 15px;
       }
 
       .hero p {
-        font-size: 1.1rem;
-        margin-bottom: 15px;
+        font-size: 1.3rem;
+        margin-bottom: 30px;
       }
 
       .hero a {
         text-decoration: none;
-        font-size: 1.3rem;
-        font-weight: bold;
+        color: white;
+        background: #e50914;
+        padding: 15px 35px;
+        border-radius: 8px;
+        font-size: 1.2rem;
+      }
+      .hero a:hover {
+        background: #b20710;
+      }
+
+      .features {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        flex-wrap: wrap;
+        margin: 50px 0;
+      }
+
+      .feature-card {
+        width: 280px;
+        min-height: 220px;
+
+        padding: 30px;
+
+        border-radius: 15px;
+
+        background: white;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        text-align: center;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .feature-card h3 {
+        font-size: 1.5rem;
+        margin: 15px 0;
+      }
+
+      .feature-card p {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      .stats {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin: 50px 0;
+      }
+
+      .stat-box {
+        background: white;
+        color: black;
+        padding: 35px 20px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        transition: 0.3s;
+      }
+
+      .stat-box h2 {
+        color: #e50914;
+        font-size: 2rem;
+      }
+
+      #themeToggle {
+        width: 48px;
+        height: 48px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: transparent;
+        border: none;
+        outline: none;
+        box-shadow: none;
+
+        border-radius: 50px;
+
+        color: white;
+
+        font-size: 1.2rem;
+        cursor: pointer;
+
+        transition: 0.3s ease;
+      }
+
+      #themeToggle:hover {
+        transform: scale(1.08);
+        background: #444;
+      }
+
+      #themeToggle:focus,
+      #themeToggle:active {
+        outline: none;
+        border: none;
+        box-shadow: none;
+      }
+
+      body.dark {
+        background: #121212;
+        color: white;
+      }
+
+      body.dark .h {
+        color: white;
+      }
+
+      body.dark .nav a {
+        color: white;
+      }
+
+      body.dark .content {
+        color: white;
+      }
+
+      body.dark footer {
+        color: white;
+      }
+
+      body.dark .feature-card {
+        background: #1f1f1f;
+        color: white;
+      }
+
+      body.dark .movie-card {
+        background: #1f1f1f;
+        color: white;
+      }
+
+      body.dark button {
+        background: #ff4444;
+      }
+
+      body.dark button:hover {
+        background: #ff2222;
+      }
+      body.dark {
+        background: #121212;
+        color: white;
+      }
+
+      body.dark .stat-box {
+        background: #1f1f1f !important;
+        color: white !important;
+      }
+
+      body.dark .stat-box h2 {
+        color: #ff4d4d !important;
+      }
+
+      body.dark .stat-box p {
+        color: white !important;
+      }
+      body.dark #themeToggle {
+        color: #222;
       }
       @media (max-width: 768px) {
         .h {
@@ -223,6 +403,7 @@
       <nav class="nav" id="navMenu">
         <a href="About Us.html">About Us</a>
         <a href="Booking.html">Booking</a>
+        <button id="themeToggle" onclick="toggleTheme()">🌙</button>
         <a href="Login.html" onclick="logout()">Logout</a>
       </nav>
       <br />
@@ -240,6 +421,31 @@
         <h1>Book Your Favorite Movies Online</h1>
         <p>Fast, secure, and convenient movie ticket booking</p>
         <a href="Booking.html">Book Tickets Now </a>
+      </section>
+      <section class="features">
+        <div class="feature-card">
+          <i class="fa-solid fa-ticket"></i>
+          <h3>Easy Booking</h3>
+          <p>Book movie tickets online in just a few clicks.</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="fa-solid fa-film"></i>
+          <h3>Latest Movies</h3>
+          <p>Watch the newest blockbusters and trending releases.</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="fa-solid fa-couch"></i>
+          <h3>Seat Selection</h3>
+          <p>Choose your preferred seats with real-time availability.</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="fa-solid fa-bolt"></i>
+          <h3>Instant Confirmation</h3>
+          <p>Get booking confirmation immediately after payment.</p>
+        </div>
       </section>
     </header>
 
@@ -271,7 +477,27 @@
         <li>User-friendly interface</li>
         <li>Instant booking confirmation</li>
       </ul>
+      <section class="stats">
+        <div class="stat-box">
+          <h2>500+</h2>
+          <p>Movies Available</p>
+        </div>
 
+        <div class="stat-box">
+          <h2>50K+</h2>
+          <p>Tickets Booked</p>
+        </div>
+
+        <div class="stat-box">
+          <h2>100+</h2>
+          <p>Theatres</p>
+        </div>
+
+        <div class="stat-box">
+          <h2>98%</h2>
+          <p>Customer Satisfaction</p>
+        </div>
+      </section>
       <h2>Why Choose Us?</h2>
 
       <p>
@@ -288,9 +514,83 @@
         your favorite movies.
       </p>
     </main>
+    <h2
+      style="
+        text-align: center;
+        margin-top: 60px;
+        margin-bottom: 30px;
+        font-size: 2.2rem;
+      "
+    >
+      🎬 Now Showing
+    </h2>
 
-    <footer>
-      &copy; 2026 Movie Ticket Booking System. All rights reserved.
+    <section class="features">
+      <div class="feature-card">
+        <img
+          src="https://res.cloudinary.com/dadbypj1l/image/upload/v1783093787/bnd_r79khm.webp"
+          alt="Spider-Man"
+          width="100%"
+          style="border-radius: 10px"
+        />
+        <h3>Spider-Man: Brand New Day</h3>
+      </div>
+
+      <div class="feature-card">
+        <img
+          src="https://res.cloudinary.com/dadbypj1l/image/upload/v1783093788/messiah_fvstqb.webp"
+          alt="Dune Messiah"
+          width="100%"
+          style="border-radius: 10px"
+        />
+        <h3>Dune Messiah</h3>
+      </div>
+
+      <div class="feature-card">
+        <img
+          src="https://res.cloudinary.com/dadbypj1l/image/upload/v1783093801/phm_rmue5q.webp"
+          alt="Project Hail Mary"
+          width="100%"
+          style="border-radius: 10px"
+        />
+        <h3>Project Hail Mary</h3>
+      </div>
+
+      <div class="feature-card">
+        <img
+          src="https://res.cloudinary.com/dadbypj1l/image/upload/v1783093781/nolan_w1to8d.webp"
+          alt="The Odyssey"
+          width="100%"
+          style="border-radius: 10px"
+        />
+        <h3>The Odyssey</h3>
+      </div>
+
+      <div class="feature-card">
+        <img
+          src="https://res.cloudinary.com/dadbypj1l/image/upload/v1783093790/doomsday_lyzyrx.webp"
+          alt="Avengers Doomsday"
+          width="100%"
+          style="border-radius: 10px"
+        />
+        <h3>Avengers: Doomsday</h3>
+      </div>
+    </section>
+
+    <footer
+      style="background: #111827; color: white; padding: 30px; margin-top: 50px"
+    >
+      <h2>Movie Ticket Booking System</h2>
+
+      <p>Email: support@moviebooking.com</p>
+
+      <p>Phone: +91 9876543210</p>
+
+      <p>Follow Us: 🎬 📘 📷 🐦</p>
+
+      <br />
+
+      <p>&copy; 2026 Movie Ticket Booking System</p>
     </footer>
 
     <script>
@@ -307,6 +607,25 @@
       }
       function toggleMenu() {
         document.getElementById("navMenu").classList.toggle("active");
+      }
+      if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark");
+        document.getElementById("themeToggle").innerHTML = "☀️";
+      }
+
+      // Toggle Theme
+      function toggleTheme() {
+        document.body.classList.toggle("dark");
+
+        const btn = document.getElementById("themeToggle");
+
+        if (document.body.classList.contains("dark")) {
+          btn.innerHTML = "☀️ ";
+          localStorage.setItem("theme", "dark");
+        } else {
+          btn.innerHTML = "🌙 ";
+          localStorage.setItem("theme", "light");
+        }
       }
     </script>
   </body>
