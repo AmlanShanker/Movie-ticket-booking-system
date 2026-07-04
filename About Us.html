@@ -198,39 +198,39 @@
       font-size: 1.5rem;
       line-height: 1;
     }
-    .dark-mode {
+    body.dark {
       background: #121212;
       color: white;
     }
 
-    .dark-mode .nav a {
+    body.dark .nav a {
       color: white;
     }
 
-    .dark-mode .hero {
+    body.dark .hero {
       color: white;
     }
 
-    .dark-mode .screen-card {
+    body.dark .screen-card {
       background: #1f1f1f;
     }
 
-    .dark-mode .screen-content {
+    body.dark .screen-content {
       background: #1f1f1f;
     }
 
-    .dark-mode .screen-content h3,
-    .dark-mode .screen-content p {
-      background: #1f1f1f;
-      color: white;
-    }
-
-    .dark-mode .facilities div {
+    body.dark .screen-content h3,
+    body.dark .screen-content p {
       background: #1f1f1f;
       color: white;
     }
 
-    .dark-mode footer {
+    body.dark .facilities div {
+      background: #1f1f1f;
+      color: white;
+    }
+
+    body.dark footer {
       color: white;
     }
     @media (max-width: 768px) {
@@ -375,23 +375,6 @@
         &copy; 2026 Movie Ticket Booking System. All rights reserved.
       </p>
     </footer>
-    <script>
-      if (localStorage.getItem("theme") == "dark") {
-        document.body.classList.add("dark-mode");
-        document.getElementById("themeToggle").innerHTML = "☀️";
-      }
-
-      function toggleTheme() {
-        document.body.classList.toggle("dark-mode");
-
-        if (document.body.classList.contains("dark-mode")) {
-          localStorage.setItem("theme", "dark");
-          document.getElementById("themeToggle").innerHTML = "☀️";
-        } else {
-          localStorage.setItem("theme", "light");
-          document.getElementById("themeToggle").innerHTML = "🌙";
-        }
-      }
-    </script>
+    <script src="/Movie-ticket-booking-system/script.js"></script>
   </body>
 </html>

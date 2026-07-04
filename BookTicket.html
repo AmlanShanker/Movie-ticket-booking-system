@@ -12,16 +12,25 @@
         box-sizing: border-box;
       }
 
-      body {
-        font-family: Arial, sans-serif;
-        background: #bcd3f2;
+      *::-webkit-scrollbar {
+        display: none;
       }
 
-      header {
+      body {
+        background: #f4f6f8;
+        font-family: Arial, sans-serif;
+      }
+
+      .header {
+        width: 100%;
+        padding: 20px 0;
         text-align: center;
+      }
+
+      .header h1 {
         font-size: 3rem;
         font-weight: bold;
-        padding: 20px;
+        margin-bottom: 20px;
       }
 
       .nav {
@@ -32,6 +41,8 @@
       }
 
       .nav a {
+        display: flex;
+        align-items: center;
         text-decoration: none;
         color: black;
         font-size: 1.1rem;
@@ -78,8 +89,45 @@
       .full-width {
         grid-column: 1 / span 2;
       }
+      #themeToggle {
+        width: 42px;
+        height: 42px;
 
-      button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        margin: 0;
+        padding: 0;
+
+        background: transparent;
+        border: none;
+        outline: none;
+        box-shadow: none;
+
+        color: black;
+        font-size: 1.2rem;
+        line-height: 1;
+
+        cursor: pointer;
+
+        transition: 0.3s;
+      }
+
+      #themeToggle:hover {
+        background: #ddd;
+        border-radius: 50%;
+      }
+
+      body.dark #themeToggle {
+        color: white;
+      }
+
+      body.dark #themeToggle:hover {
+        background: #444;
+      }
+
+      .action-btn {
         padding: 12px;
         background: #007bff;
         color: white;
@@ -90,10 +138,9 @@
         font-weight: bold;
       }
 
-      button:hover {
+      .action-btn:hover {
         background: #0056b3;
       }
-
       .price-box {
         text-align: center;
         padding: 15px;
@@ -133,6 +180,41 @@
         margin-top: 20px;
         font-weight: bold;
       }
+      body.dark {
+        background: #121212;
+        color: white;
+      }
+
+      body.dark .container {
+        background: #1f1f1f;
+      }
+
+      body.dark label,
+      body.dark h2,
+      body.dark h3 {
+        color: white;
+      }
+
+      body.dark input,
+      body.dark select {
+        background: #333;
+        color: white;
+        border: 1px solid #666;
+      }
+
+      body.dark .price-box,
+      body.dark .summary-box {
+        background: #2b2b2b;
+      }
+
+      body.dark .modal-content {
+        background: #1f1f1f;
+        color: white;
+      }
+
+      body.dark .nav a {
+        color: white;
+      }
       @media (max-width: 768px) {
         header {
           font-size: 2rem;
@@ -152,8 +234,10 @@
         }
 
         .nav {
-          flex-direction: column;
-          gap: 10px;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+          gap: 15px;
         }
 
         .modal-content {
@@ -181,13 +265,14 @@
   </head>
 
   <body>
-    <header>
-      Book Ticket
+    <header class="header">
+      <h1>Book Ticket</h1>
 
       <nav class="nav">
         <a href="Homepage.html">Home</a>
         <a href="Booking.html">Movies</a>
         <a href="About Us.html">About Us</a>
+        <button id="themeToggle" onclick="toggleTheme()">🌙</button>
       </nav>
     </header>
 
@@ -248,7 +333,7 @@
             <h3>Total Price: ₹<span id="totalPrice">250</span></h3>
           </div>
           <div class="full-width">
-            <button type="submit">Confirm Booking</button>
+            <button class="action-btn" type="submit">Confirm Booking</button>
           </div>
         </div>
       </form>
@@ -276,6 +361,17 @@
     </footer>
 
     <script>
+      const poster = localStorage.getItem("moviePoster");
+
+      if (poster) {
+        document.body.style.background = `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+     url('${poster}')`;
+
+        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundPosition = "center";
+        document.body.style.backgroundAttachment = "fixed";
+      }
+
       function showModal() {
         document.getElementById("bookingModal").style.display = "block";
 
@@ -302,7 +398,16 @@
       const movieName = document.getElementById("movieName");
       const ticketCount = document.getElementById("ticketCount");
       const totalPrice = document.getElementById("totalPrice");
+      const selectedMovie = localStorage.getItem("movieName");
 
+      if (selectedMovie) {
+        for (let option of movieName.options) {
+          if (option.text === selectedMovie) {
+            option.selected = true;
+            break;
+          }
+        }
+      }
       function updatePrice() {
         let moviePrice = Number(movieName.value);
 
@@ -319,5 +424,6 @@
 
       updatePrice();
     </script>
+    <script src="script.js"></script>
   </body>
 </html>

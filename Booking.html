@@ -11,6 +11,9 @@
         padding: 0;
         box-sizing: border-box;
       }
+      *::-webkit-scrollbar {
+        display: none;
+      }
 
       body {
         background: #f4f6f8;
@@ -59,12 +62,21 @@
       .nav {
         font-size: 1.1rem;
         margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
       }
 
       .nav a {
+        display: flex;
+        align-items: center;
+
         text-decoration: none;
         color: black;
         font-weight: bold;
+
         padding: 10px 20px;
       }
 
@@ -84,8 +96,7 @@
 
       .poster {
         width: 100%;
-        height: 420px;
-        object-fit: cover;
+        height: auto;
         display: block;
       }
       .movie-container {
@@ -166,13 +177,19 @@
 
       .modal-content {
         background: white;
-        width: 400px;
-        margin: 8% auto;
-        padding: 20px;
-        border-radius: 10px;
+        width: 70%;
+        max-width: 650px;
+        margin: 20px auto;
+        padding: 25px;
+        border-radius: 15px;
         text-align: center;
       }
-
+      #modalTrailer {
+        width: 100%;
+        height: 360px;
+        border-radius: 10px;
+        object-fit: cover;
+      }
       .close-btn {
         background: red;
       }
@@ -182,6 +199,66 @@
         padding: 20px;
         margin-top: 40px;
         font-weight: bold;
+      }
+      #themeToggle {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        border: none;
+        outline: none;
+        box-shadow: none;
+
+        border-radius: 50%;
+
+        color: black;
+        font-size: 1.3rem;
+        cursor: pointer;
+
+        transition: 0.3s;
+      }
+
+      #themeToggle:hover {
+        background: #ddd;
+        transform: scale(1.1);
+      }
+
+      body.dark #themeToggle {
+        color: white;
+      }
+
+      body.dark #themeToggle:hover {
+        background: #444;
+      }
+      body.dark {
+        background: #121212;
+        color: white;
+      }
+
+      body.dark .movie-card p {
+        background: #1f1f1f;
+        color: white;
+      }
+      body.dark .movie-details {
+        background: #1f1f1f;
+      }
+
+      body.dark .movie-details p,
+      body.dark .movie-details h3 {
+        color: white;
+      }
+
+      body.dark .nav a {
+        color: white;
+      }
+
+      body.dark .modal-content {
+        background: #1f1f1f;
+        color: white;
       }
       @media (max-width: 768px) {
         .h {
@@ -205,7 +282,12 @@
         }
 
         .modal-content {
-          width: 90%;
+          width: 95%;
+          padding: 20px;
+        }
+
+        #modalTrailer {
+          height: 220px;
         }
       }
 
@@ -228,6 +310,7 @@
       <nav class="nav">
         <a href="Homepage.html">Home</a>
         <a href="About Us.html">About Us</a>
+        <button id="themeToggle" onclick="toggleTheme()">🌙</button>
       </nav>
     </header>
 
@@ -258,6 +341,7 @@
                 openModal(
                   'Spider-Man Brand New Day',
                   'https://res.cloudinary.com/dadbypj1l/video/upload/v1783091770/spider-man_a6yjoj.mp4',
+                  'https://res.cloudinary.com/dadbypj1l/image/upload/v1783179834/spid_b5is9m.webp',
                 )
               "
             >
@@ -286,6 +370,7 @@
                 openModal(
                   'The Odyssey',
                   'https://res.cloudinary.com/dadbypj1l/video/upload/v1783091584/odyssey_bslaha.mp4',
+                  'https://res.cloudinary.com/dadbypj1l/image/upload/v1783179528/odd_ypnfgd.webp',
                 )
               "
             >
@@ -314,6 +399,7 @@
                 openModal(
                   'Project Hail Mary',
                   'https://res.cloudinary.com/dadbypj1l/video/upload/v1783092134/phm_sjlieb.mp4',
+                  'https://res.cloudinary.com/dadbypj1l/image/upload/v1783179542/phm_oqiz6h.webp',
                 )
               "
             >
@@ -342,6 +428,7 @@
                 openModal(
                   'Dune Messiah',
                   'https://res.cloudinary.com/dadbypj1l/video/upload/v1783091420/dune_bwm8hs.mp4',
+                  'https://res.cloudinary.com/dadbypj1l/image/upload/v1783179328/dun_uwievl.webp',
                 )
               "
             >
@@ -370,6 +457,7 @@
                 openModal(
                   'Avengers: Doomsday',
                   'https://res.cloudinary.com/dadbypj1l/video/upload/v1783091354/doomsday_wlm2by.mp4',
+                  'https://res.cloudinary.com/dadbypj1l/image/upload/v1783179941/doom_cxwnbc.webp',
                 )
               "
             >
@@ -384,14 +472,8 @@
       <div class="modal-content">
         <h2>Movie Selected!</h2>
 
-        <video
-          id="modalTrailer"
-          width="100%"
-          height="220"
-          controls
-          autoplay
-          muted
-        >
+        <video id="modalTrailer" controls autoplay muted>
+          >
           <source id="modalSource" src="" type="video/mp4" />
         </video>
 
@@ -410,9 +492,12 @@
     </footer>
 
     <script>
-      function openModal(movieName, trailer) {
+      function openModal(movieName, trailer, poster) {
         document.getElementById("selectedMovie").innerHTML =
           "You selected <b>" + movieName + "</b>. Click Continue to proceed.";
+
+        localStorage.setItem("movieName", movieName);
+        localStorage.setItem("moviePoster", poster);
 
         const video = document.getElementById("modalTrailer");
         const source = document.getElementById("modalSource");
@@ -433,5 +518,6 @@
         document.getElementById("bookingModal").style.display = "none";
       }
     </script>
+    <script src="/Movie-ticket-booking-system/script.js"></script>
   </body>
 </html>

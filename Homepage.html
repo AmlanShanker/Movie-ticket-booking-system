@@ -98,6 +98,20 @@
 
         color: white;
       }
+      #welcomeUser {
+        text-align: center;
+        margin-top: 15px;
+        color: black;
+        font-size: 1.8rem;
+        font-weight: bold;
+      }
+
+      .menu-btn {
+        display: none;
+        font-size: 2rem;
+        cursor: pointer;
+        margin-top: 15px;
+      }
 
       .hero h1 {
         font-size: 3rem;
@@ -320,20 +334,6 @@
           font-size: 0.9rem;
         }
       }
-      #welcomeUser {
-        text-align: center;
-        margin-top: 15px;
-        color: black;
-        font-size: 1.8rem;
-        font-weight: bold;
-      }
-
-      .menu-btn {
-        display: none;
-        font-size: 2rem;
-        cursor: pointer;
-        margin-top: 15px;
-      }
 
       @media (max-width: 768px) {
         .h {
@@ -409,16 +409,7 @@
         <a href="Login.html" onclick="logout()">Logout</a>
       </nav>
       <br />
-      <h3
-        id="welcomeUser"
-        style="
-          text-align: center;
-          margin-top: 15px;
-          color: black;
-          font-size: 1.8rem;
-          font-weight: bold;
-        "
-      ></h3>
+      <h3 id="welcomeUser"></h3>
       <section class="hero">
         <h1>Book Your Favorite Movies Online</h1>
         <p>Fast, secure, and convenient movie ticket booking</p>
@@ -614,21 +605,7 @@
         document.body.classList.add("dark");
         document.getElementById("themeToggle").innerHTML = "☀️";
       }
-
-      // Toggle Theme
-      function toggleTheme() {
-        document.body.classList.toggle("dark");
-
-        const btn = document.getElementById("themeToggle");
-
-        if (document.body.classList.contains("dark")) {
-          btn.innerHTML = "☀️ ";
-          localStorage.setItem("theme", "dark");
-        } else {
-          btn.innerHTML = "🌙 ";
-          localStorage.setItem("theme", "light");
-        }
-      }
     </script>
+    <script src="/Movie-ticket-booking-system/script.js"></script>
   </body>
 </html>

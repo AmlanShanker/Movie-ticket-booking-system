@@ -10,8 +10,17 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        background: #bcd3f2;
         font-family: Arial;
+      }
+      *::-webkit-scrollbar {
+        display: none;
+      }
+      body {
+        background-image: url("https://res.cloudinary.com/dadbypj1l/image/upload/v1783179542/phm_oqiz6h.webp");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
       }
 
       header {
@@ -19,6 +28,10 @@
         font-size: 2rem;
         font-weight: bold;
         padding: 20px;
+      }
+      header,
+      label {
+        color: white;
       }
 
       form {
@@ -37,8 +50,13 @@
         width: 100%;
         padding: 10px;
         margin-top: 5px;
+        color: white;
+        background: transparent;
+        border: 1px solid white;
       }
-
+      option {
+        color: black;
+      }
       button {
         width: 100%;
         padding: 10px;
